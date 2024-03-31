@@ -1,5 +1,4 @@
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
-import SaveButton from "./SaveButton";
 
 const Output = () => {
   return (
@@ -17,7 +16,6 @@ const Output = () => {
             }}
           />
         </div>
-        <SaveButton />
       </div>
       <iframe id="output" className="bg-transparent" />
     </div>

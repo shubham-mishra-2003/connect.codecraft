@@ -1,4 +1,5 @@
 import Logo from "../img/logo.jpeg";
+import SaveButton from "./SaveButton";
 import SavedCodes from "./SavedCodes";
 
 const Header = () => {
@@ -16,7 +17,10 @@ const Header = () => {
           </span>
         </div>
       </div>
-      <SavedCodes />
+      <div className="flex gap-2 items-center">
+        <SavedCodes />
+        <SaveButton />
+      </div>
     </header>
   );
 };

@@ -1,17 +1,44 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import toast from "react-hot-toast";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 
-const SavedButton = () => {
+const SaveButton = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isSmall, setIsSmall] = useState(window.innerWidth > 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmall(window.innerWidth > 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const saveFile = () => {
+    const fileName = document.getElementById("filename").value;
+    if (!fileName) {
+      toast.error("Enter the file name");
+    } else if (fileName.length < 5) {
+      toast.error("Name it more than 5 characters");
+    } else {
+      toast.success("File saved");
+    }
+  };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Save Work</Button>
+      <Button onClick={handleOpen}>
+        {isSmall ? "Save Work" : <SaveAltIcon fontSize="large" />}
+      </Button>
       <Modal
         className="flex justify-center items-center"
         aria-labelledby="spring-modal-title"
@@ -25,11 +52,12 @@ const SavedButton = () => {
           <h2>Save Your Work</h2>
           <form className="flex md:flex-row flex-col mt-5 gap-4">
             <TextField
-              label="Enter taks name"
+              label="Enter task name"
               placeholder="my first task"
               multiline
+              id="filename"
             />
-            <Button>Save</Button>
+            <Button onClick={saveFile}>Save</Button>
           </form>
         </div>
       </Modal>
@@ -37,4 +65,4 @@ const SavedButton = () => {
   );
 };
 
-export default SavedButton;
+export default SaveButton;

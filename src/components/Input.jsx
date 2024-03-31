@@ -3,6 +3,7 @@ import CssIcon from "@mui/icons-material/Css";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 
 const Input = () => {
+
   const run = () => {
     let htmlCode = document.getElementById("html").value;
     let cssCode = document.getElementById("css").value;
