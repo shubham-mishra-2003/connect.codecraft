@@ -30,7 +30,6 @@ const SavedCodes = () => {
     handleClose();
   };
 
-  // Function to load saved data from localStorage
   useEffect(() => {
     const fetchData = () => {
       const savedFiles = JSON.parse(localStorage.getItem("savedFiles")) || [];
@@ -71,7 +70,7 @@ const SavedCodes = () => {
               <h2 className="md:text-2xl text-xl text-center">
                 Previous Work
               </h2>
-              <div className="flex flex-col gap-1 overflow-scroll h-full w-full">
+              <div className="flex flex-col overflow-scroll h-full w-full">
                 {savedData.map((data, index) => (
                   <div key={index} className="w-full flex justify-between mt-2">
                     <button
