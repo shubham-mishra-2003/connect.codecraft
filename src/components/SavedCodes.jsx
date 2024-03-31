@@ -72,7 +72,7 @@ const SavedCodes = () => {
               </h2>
               <div className="flex flex-col overflow-scroll h-full w-full">
                 {savedData.map((data, index) => (
-                  <div key={index} className="w-full flex justify-between mt-2">
+                  <div key={index} className="w-full flex justify-between items-center mt-2">
                     <button
                       onClick={() => {
                         handleCodeClick(data[Object.keys(data)[0]].htmlCode, data[Object.keys(data)[0]].cssCode, data[Object.keys(data)[0]].jsCode);
