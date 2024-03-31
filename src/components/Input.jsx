@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import HtmlIcon from "@mui/icons-material/Html";
 import CssIcon from "@mui/icons-material/Css";
 import JavascriptIcon from "@mui/icons-material/Javascript";
 
 const Input = () => {
+  useEffect(() => {
+    const fetchData = () => {
+      const savedData = JSON.parse(localStorage.getItem("savedData")) || {};
+      document.getElementById("html").value = savedData.htmlCode || "";
+      document.getElementById("css").value = savedData.cssCode || "";
+      document.getElementById("js").value = savedData.jsCode || "";
+    };
+
+    fetchData();
+  }, []);
 
   const run = () => {
     let htmlCode = document.getElementById("html").value;
@@ -13,6 +24,9 @@ const Input = () => {
     output.contentDocument.body.innerHTML =
       htmlCode + "<style> *{color: #fff}" + cssCode + "</style>";
     output.contentWindow.eval(jsCode);
+
+    const savedData = { htmlCode, cssCode, jsCode };
+    localStorage.setItem("savedData", JSON.stringify(savedData));
   };
 
   return (

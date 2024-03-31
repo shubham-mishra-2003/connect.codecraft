@@ -24,13 +24,31 @@ const SaveButton = () => {
   }, []);
 
   const saveFile = () => {
-    const fileName = document.getElementById("filename").value;
+    let fileName = document.getElementById("filename").value;
     if (!fileName) {
       toast.error("Enter the file name");
     } else if (fileName.length < 5) {
       toast.error("Name it more than 5 characters");
     } else {
-      toast.success("File saved");
+      let htmlCode = document.getElementById("html").value;
+      let cssCode = document.getElementById("css").value;
+      let jsCode = document.getElementById("js").value;
+      let file = {
+        [fileName]: {
+          htmlCode,
+          cssCode,
+          jsCode
+        }
+      };
+      const savedFiles = JSON.parse(localStorage.getItem("savedFiles")) || [];
+      savedFiles.push(file);
+      localStorage.setItem("savedFiles", JSON.stringify(savedFiles));
+      if (savedFiles) {
+        toast.success("File Saved");
+        setTimeout(() => {
+          location.reload();
+        }, 1500);
+      }
     }
   };
 
