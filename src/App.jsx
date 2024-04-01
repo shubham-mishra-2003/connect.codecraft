@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Output from "./components/Output";
+import Model from "./components/Model";
 
 function App() {
   // Define state for html, css, and js
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Input setHtml={setHtml} setCss={setCss} setJs={setJs} />
       <Output html={html} css={css} js={js} />
+      <Model />
     </div>
   );
 }
