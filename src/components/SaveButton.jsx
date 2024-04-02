@@ -28,7 +28,7 @@ const SaveButton = () => {
     if (!fileName) {
       toast.error("Enter the file name");
     } else if (fileName.length < 5 || fileName.length > 20) {
-      toast.error("Name it between 5 - 10 characters");
+      toast.error("Name it between 5 - 20 characters");
     } else {
       let htmlCode = document.getElementById("html").value;
       let cssCode = document.getElementById("css").value;
@@ -55,7 +55,7 @@ const SaveButton = () => {
   return (
     <div>
       <Button onClick={handleOpen}>
-        {isSmall ? "Save Work" : <SaveAltIcon fontSize="large" />}
+        {isSmall ? "Save Work" : <SaveAltIcon />}
       </Button>
       <Modal
         className="flex justify-center items-center"

@@ -53,7 +53,7 @@ const SavedCodes = () => {
       <Button onClick={handleOpen}>
         {isSmall
           ? "Show previous"
-          : <ArrowDropDownCircleIcon fontSize="large" />}
+          : <ArrowDropDownCircleIcon />}
       </Button>
       <Modal
         className="flex justify-center items-center"

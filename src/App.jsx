@@ -2,9 +2,9 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Output from "./components/Output";
+import Footer from "./components/Footer";
 
 function App() {
-  // Define state for html, css, and js
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
@@ -14,6 +14,7 @@ function App() {
       <Header />
       <Input setHtml={setHtml} setCss={setCss} setJs={setJs} />
       <Output html={html} css={css} js={js} />
+      <Footer />
     </div>
   );
 }
