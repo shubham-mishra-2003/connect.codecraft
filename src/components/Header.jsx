@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import Logo from "../img/logo.jpeg";
 import SaveButton from "./SaveButton";
 import SavedCodes from "./SavedCodes";
@@ -17,7 +18,12 @@ const Header = () => {
           </span>
         </div>
       </div>
-      <div className="flex gap-2 items-center">
+      <div className="hidden md:block p-0">
+        <Button href="https://shubhammishra.vercel.app" target="_main">
+          Meet Developer
+        </Button>
+      </div>
+      <div className="flex items-center">
         <SavedCodes />
         <SaveButton />
       </div>
