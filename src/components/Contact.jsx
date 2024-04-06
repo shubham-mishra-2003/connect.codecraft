@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const formRef = useRef();
@@ -35,7 +36,10 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Thankyou. I will get back to you as soon as possible");
+          toast.success("Submitted 😊");
+          setTimeout(() => {
+            toast.success("Get back to you ASAP");
+          }, 1000);
 
           setForm({
             name: "",
@@ -46,14 +50,16 @@ const Contact = () => {
         error => {
           setLoading(false);
           console.log(error);
-          alert("Something went wrong !");
+          toast.error("Something went wrong !");
         }
       );
   };
 
   return (
     <div className="flex flex-col m-10">
-      <h3 className="text-4xl font-bold font-serif text-gray-300 uppercase">contact</h3>
+      <h3 className="text-4xl font-bold font-serif text-gray-300 uppercase">
+        contact
+      </h3>
       <form
         ref={formRef}
         onSubmit={handleSubmit}
