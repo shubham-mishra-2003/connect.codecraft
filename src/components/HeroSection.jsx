@@ -39,12 +39,12 @@ const HeroSection = () => {
           Experience the real-time code editor and save your work without the
           hesitation of providing login credentials.
         </p>
-        {/* <Link
+        <Link
           to="./editor"
           className="bg-blue-700 text-slate-300 p-2 rounded-lg text-2xl hover:bg-sky-900"
         >
           Get Started
-        </Link> */}
+        </Link>
       </div>
     </section>
   );

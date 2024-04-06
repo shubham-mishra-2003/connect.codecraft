@@ -18,13 +18,13 @@ const Header = () => {
         </h1>
       </div>
       <div className="flex gap-3 md:text-xl justify-center items-center">
-        <Link
+        {/* <Link
           target="_main"
           to="/tutorial"
           className="text-gray-300 transition-all hover:text-gray-400"
         >
           Tutorial
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
