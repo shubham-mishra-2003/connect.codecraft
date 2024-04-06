@@ -1,27 +1,32 @@
-import Logo from "../img/logo.jpeg";
-import SaveButton from "./SaveButton";
-import SavedCodes from "./SavedCodes";
+import { Link } from "react-router-dom";
+import logo from "../assets/logo.jpeg";
 
 const Header = () => {
   return (
-    <header className="w-full p-2 pl-4 flex justify-between items-center border-b-8 border-blue-500 bg-black text-white">
-      <div className="flex gap-3 items-center">
+    <div className="flex justify-between bg-black pl-5 p-3 pr-6 text-white w-full fixed z-10">
+      <div className="flex justify-center items-center gap-4 w-max">
         <img
-          src={Logo}
-          className="rounded-full border-white w-10 h-10 md:w-14 md:h-14"
+          src={logo}
+          alt="codecraft logo"
+          className="md:w-12 md:h-12 h-10 w-10 rounded-full"
         />
-        <div className="flex w-min flex-col md:text-xl text-sm">
-          <span className="font-extrabold text-sky-400">Connect.CodeCraft</span>
-          <span className="md:text-lg text-[0.9em] text-gray-400 self-start">
-            By shubham mishra
+        <h1 className="flex flex-col sm:text-xl md:text-2xl text-lg font-extrabold text-sky-400">
+          Connect.CodeCraft
+          <span className="md:text-lg sm:text-sm text-[0.8rem] text-gray-400 self-start">
+            by shubham mishra
           </span>
-        </div>
+        </h1>
       </div>
-      <div className="flex items-center">
-        <SavedCodes />
-        <SaveButton />
+      <div className="flex gap-3 md:text-xl justify-center items-center">
+        <Link
+          target="_main"
+          to="/tutorial"
+          className="text-gray-300 transition-all hover:text-gray-400"
+        >
+          Tutorial
+        </Link>
       </div>
-    </header>
+    </div>
   );
 };
 

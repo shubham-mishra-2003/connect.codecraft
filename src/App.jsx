@@ -1,21 +1,17 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Input from "./components/Input";
-import Output from "./components/Output";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import Editor from "./pages/Editor";
+import Tutorial from "./pages/Tutorial";
 
-function App() {
-  const [html, setHtml] = useState("");
-  const [css, setCss] = useState("");
-  const [js, setJs] = useState("");
-
+const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Input setHtml={setHtml} setCss={setCss} setJs={setJs} />
-      <Output html={html} css={css} js={js} />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/editor" element={<Editor />} />
+        <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </Router>
   );
 }
 
